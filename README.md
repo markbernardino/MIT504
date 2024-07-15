@@ -78,7 +78,7 @@ Linear regression is fundamental for understanding relationships between variabl
 - **Strengths and weaknesses:** Comparison with linear regression.
 
 ## Google Colab
-
+[Simple Linear Regression](L4_Simple_Linear_Regression.ipynb)
 
 ## Conclusion
 
