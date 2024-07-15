@@ -77,6 +77,8 @@ Linear regression is fundamental for understanding relationships between variabl
 - **Other regression algorithms:** Ridge Regression, Lasso Regression.
 - **Strengths and weaknesses:** Comparison with linear regression.
 
+## Google Colab
+
 ## Conclusion
 
 - Summary of key points and importance in data science and project management.
