@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A comprehensive guide to Linear Regression including its definition, history, importance, concepts, and implementation.">
+  <title>Linear Regression</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5; /* Light grey background */
+      font-family: Arial, sans-serif;
+    }
+    .navbar-left {
+      width: 230px;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      padding: 20px;
+      background-color: #ffffff; /* White background for navbar */
+      border-right: 1px solid #dee2e6;
+      height: 100vh;
+      overflow-y: auto; /* Allow vertical scrolling */
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Slight shadow for visual separation */
+    }
+    .navbar-left h4 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      color: #007bff; /* Blue color for the title */
+    }
+    .nav-link {
+      font-size: 1rem;
+      padding: 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      background-color: #007bff;
+      color: #ffffff;
+      font-weight: bold;
+    }
+    .content-area {
+      margin-left: 250px; /* Adjusted space for the navbar */
+      padding: 20px;
+    }
+    .section-title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #343a40; /* Darker text color for section titles */
+      margin-bottom: 20px;
+    }
+    .content-section {
+      margin-bottom: 30px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .subsection-title {
+      font-size: 22px;
+      font-weight: bold;
+      color: #495057; /* Slightly lighter color for subsection titles */
+      margin-top: 20px;
+    }
+    pre {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    footer {
+      padding: 15px;
+      background-color: #343a40;
+      color: #ffffff;
+      font-size: 0.875rem;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 400px; /* Increased height for better visibility */
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-left">
+      <h4>Linear Regression</h4>
+      <nav class="nav flex-column">
+        <a class="nav-link" href="#definition">Definition</a>
+        <a class="nav-link" href="#history">History</a>
+        <a class="nav-link" href="#importance">Importance</a>
+        <a class="nav-link" href="#concepts">Concepts</a>
+        <a class="nav-link" href="#mathematics">Mathematics</a>
+        <a class="nav-link" href="#evaluation">Evaluation</a>
+        <a class="nav-link" href="#types">Types</a>
+        <a class="nav-link" href="#applications">Applications</a>
+        <a class="nav-link" href="#implementation">Implementation</a>
+        <a class="nav-link" href="#tools">Tools</a>
+        <a class="nav-link" href="#challenges">Challenges</a>
+        <a class="nav-link" href="#examples">Examples</a>
+        <a class="nav-link" href="#comparison">Comparison</a>
+        <a class="nav-link" href="#colab">Colab</a>
+        <a class="nav-link" href="#conclusion">Conclusion</a>
+        <a class="nav-link" href="#references">References</a>
+      </nav>
+    </nav>
+    <div class="content-area">
+      <h1 class="text-center mt-4 mb-5">Linear Regression</h1>
+      <div class="mb-4">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://github.com/markbernardino/MIT504/blob/main/Simple%20Linear%20Regression.mp4" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Content Sections -->
+      <section id="definition" class="content-section" aria-labelledby="definition-title">
+        <h2 id="definition-title" class="section-title">Definition of Linear Regression</h2>
+        <p>Linear regression is a statistical method that models the relationship between a dependent variable (<em>y</em>) and one or more independent variables (<em>x₁, x₂, ..., xₚ</em>). It assumes a linear relationship, which can be represented by a straight line when plotted.</p>
+      </section>
+
+      <section id="history" class="content-section" aria-labelledby="history-title">
+        <h2 id="history-title" class="section-title">Historical Background and Development</h2>
+        <p>Developed in the early 19th century, linear regression has evolved through advancements in statistical theory and computing power, becoming a cornerstone of predictive modeling in data science and machine learning.</p>
+      </section>
+
+      <section id="importance" class="content-section" aria-labelledby="importance-title">
+        <h2 id="importance-title" class="section-title">Importance in Data Science and Machine Learning</h2>
+        <p>Linear regression is fundamental for understanding relationships between variables, making predictions, and interpreting data trends. It serves as a basis for more complex machine learning algorithms and statistical models.</p>
+      </section>
+
+      <section id="concepts" class="content-section" aria-labelledby="concepts-title">
+        <h2 id="concepts-title" class="section-title">Basic Concepts</h2>
+        <h3 class="subsection-title">Linear relationship between variables</h3>
+        <p>Assumes a linear correlation between predictors and the response variable.</p>
+        
+        <h3 class="subsection-title">Assumptions of linear regression</h3>
+        <p>Includes linearity, independence of errors, homoscedasticity, and normality of residuals.</p>
+        
+        <h3 class="subsection-title">Simple vs. multiple linear regression</h3>
+        <p>Simple uses one predictor, while multiple incorporates multiple predictors.</p>
+      </section>
+
+      <section id="mathematics" class="content-section" aria-labelledby="mathematics-title">
+        <h2 id="mathematics-title" class="section-title">Mathematical Formulation</h2>
+        <h3 class="subsection-title">Regression equation</h3>
+        <pre>y = β₀ + β₁x₁ + β₂x₂ + ... + βₚxₚ + ε</pre>
+        
+        <h3 class="subsection-title">Interpretation of coefficients (β)</h3>
+        <p>Each β quantifies the effect of its corresponding x-variable on y.</p>
+        
+        <h3 class="subsection-title">Ordinary Least Squares (OLS) method</h3>
+        <p>Minimizes the sum of squared differences between observed and predicted values to estimate β.</p>
+      </section>
+
+      <section id="evaluation" class="content-section" aria-labelledby="evaluation-title">
+        <h2 id="evaluation-title" class="section-title">Model Evaluation</h2>
+        <h3 class="subsection-title">Assessing model fit</h3>
+        <p>R², adjusted R² measure how well the model fits the data.</p>
+        
+        <h3 class="subsection-title">Residual analysis</h3>
+        <p>Examines the difference between predicted and actual values for model validity.</p>
+        
+        <h3 class="subsection-title">Assumptions validation</h3>
+        <p>Ensures residuals meet statistical assumptions.</p>
+      </section>
+
+      <section id="types" class="content-section" aria-labelledby="types-title">
+        <h2 id="types-title" class="section-title">Types of Linear Regression</h2>
+        <h3 class="subsection-title">Simple Linear Regression</h3>
+        <p>Predicts y using one predictor.</p>
+        
+        <h3 class="subsection-title">Multiple Linear Regression</h3>
+        <p>Uses multiple predictors to predict y.</p>
+        
+        <h3 class="subsection-title">Polynomial Regression</h3>
+        <p>Models non-linear relationships using polynomial terms.</p>
+      </section>
+
+      <section id="applications" class="content-section" aria-labelledby="applications-title">
+        <h2 id="applications-title" class="section-title">Applications of Linear Regression</h2>
+        <ul>
+          <li>Technology Project Management: Predicts project timelines based on historical data.</li>
+          <li>Quality Assurance: Analyzes factors affecting product quality.</li>
+          <li>Marketing Analysis: Forecasts sales based on advertising spend.</li>
+          <li>Financial Forecasting: Predicts stock prices or market trends.</li>
+        </ul>
+      </section>
+
+      <section id="implementation" class="content-section" aria-labelledby="implementation-title">
+        <h2 id="implementation-title" class="section-title">Implementation Process</h2>
+        <h3 class="subsection-title">Data Collection</h3>
+        <p>Gathers relevant data for analysis.</p>
+        
+        <h3 class="subsection-title">Data Preprocessing</h3>
+        <p>Cleans and prepares data for regression.</p>
+        
+        <h3 class="subsection-title">Applying Linear Regression</h3>
+        <p>Implements using tools like Python or R.</p>
+        
+        <h3 class="subsection-title">Interpreting Results</h3>
+        <p>Analyzes model output to make data-driven decisions.</p>
+      </section>
+
+      <section id="tools" class="content-section" aria-labelledby="tools-title">
+        <h2 id="tools-title" class="section-title">Tools and Technologies</h2>
+        <p>Overview of tools like scikit-learn in Python and <code>lm()</code> function in R.</p>
+        <h3 class="subsection-title">Example Code Snippets and Demonstrations</h3>
+        <pre><code># Python example using scikit-learn
+from sklearn.linear_model import LinearRegression
+import numpy as np
+
+# Sample data
+X = np.array([[1, 1], [1, 2], [2, 2], [2, 3]])
+y = np.dot(X, np.array([1, 2])) + 3
+
+# Fit model
+model = LinearRegression().fit(X, y)
+
+# Model coefficients
+print("Coefficients:", model.coef_)
+print("Intercept:", model.intercept_)</code></pre>
+      </section>
+
+      <section id="challenges" class="content-section" aria-labelledby="challenges-title">
+        <h2 id="challenges-title" class="section-title">Challenges and Considerations</h2>
+        <h3 class="subsection-title">Overfitting and Underfitting</h3>
+        <p>Address the risks of overfitting and underfitting in model training.</p>
+        
+        <h3 class="subsection-title">Multicollinearity</h3>
+        <p>Handles the issue of predictors being highly correlated with each other.</p>
+        
+        <h3 class="subsection-title">Assumption Violations</h3>
+        <p>Ensures model assumptions are not violated to maintain accuracy.</p>
+      </section>
+
+      <section id="examples" class="content-section" aria-labelledby="examples-title">
+        <h2 id="examples-title" class="section-title">Examples and Case Studies</h2>
+        <p>Provides real-world examples and case studies where linear regression has been successfully applied.</p>
+      </section>
+
+      <section id="comparison" class="content-section" aria-labelledby="comparison-title">
+        <h2 id="comparison-title" class="section-title">Comparison with Other Regression Techniques</h2>
+        <p>Compares linear regression with other methods like logistic regression, ridge regression, and lasso regression.</p>
+      </section>
+
+      <section id="colab" class="content-section" aria-labelledby="colab-title">
+        <h2 id="colab-title" class="section-title">Linear Regression in Google Colab</h2>
+        <p>Step-by-step guide to implementing linear regression in Google Colab using Python.</p>
+      </section>
+
+      <section id="conclusion" class="content-section" aria-labelledby="conclusion-title">
+        <h2 id="conclusion-title" class="section-title">Conclusion</h2>
+        <p>Linear regression plays a crucial role in data science, offering a methodical approach to analyzing and predicting relationships between variables. Its applications range widely across industries, from technology and finance to marketing and project management.</p>
+      </section>
+
+      <section id="references" class="content-section" aria-labelledby="references-title">
+        <h2 id="references-title" class="section-title">References</h2>
+        <ul>
+          <li>List of sources and recommended readings.</li>
+        </ul>
+      </section>
+
+      <footer class="text-center mt-5">
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+      </footer>
+    </div>
+  </header>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Add event listeners for navigation links to highlight active sections
+      const navLinks = document.querySelectorAll('.navbar-left .nav-link');
+      const sections = document.querySelectorAll('.content-section');
+
+      window.addEventListener('scroll', function () {
+        let index = sections.length;
+
+        while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
+
+        navLinks.forEach((link) => link.classList.remove('active'));
+        navLinks[index].classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
